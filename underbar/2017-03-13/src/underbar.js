@@ -99,9 +99,15 @@
   };
 
   // es6 definition
-  // _.indexOf = (collection, iterator) => {
-
-  // };
+  _.indexOf = (collection, target) => {
+    let result = -1;
+    _.each(collection, (val, idx) => {
+      if (val === target && result === -1) {
+        result = idx;
+      }
+    });
+    return result;
+  };
 
   // Return all elements of an array that pass a truth test.
   _.filter = function(collection, test) {
