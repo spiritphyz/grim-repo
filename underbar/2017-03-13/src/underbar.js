@@ -71,7 +71,7 @@
   };
 
   // es6 definition
-  _.each = function(collection, iterator) {
+  _.each = (collection, iterator) => {
     if (Array.isArray(collection)) {
       for (let [idx, val] of collection.entries()) {
         iterator(collection[idx], idx, collection);
@@ -97,6 +97,11 @@
     });
     return result;
   };
+
+  // es6 definition
+  // _.indexOf = (collection, iterator) => {
+
+  // };
 
   // Return all elements of an array that pass a truth test.
   _.filter = function(collection, test) {
