@@ -119,9 +119,15 @@
     }, []);
   };
 
-  // es6 style
-  // _.filter = (collection, test) => {
-  // };
+  // es6 definition
+  _.filter = (collection, test) => {
+    return _.reduce(collection, (memo, val) => {
+      if (test(val)) {
+        memo.push(val);
+      }
+      return memo;
+    }, []);
+  };
   
   // Return all elements of an array that don't pass a truth test.
   _.reject = function(collection, test) {
