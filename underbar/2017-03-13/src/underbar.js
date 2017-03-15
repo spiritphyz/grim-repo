@@ -111,11 +111,17 @@
 
   // Return all elements of an array that pass a truth test.
   _.filter = function(collection, test) {
+    return _.reduce(collection, function(memo, val) {
+      if (test(val)) {
+        memo.push(val);
+      }
+      return memo;
+    }, []);
   };
 
   // es6 style
-  _.filter = (collection, test) => {
-  };
+  // _.filter = (collection, test) => {
+  // };
   
   // Return all elements of an array that don't pass a truth test.
   _.reject = function(collection, test) {
@@ -209,7 +215,6 @@
     // TIP: Many iteration problems can be most easily expressed in
     // terms of reduce(). Here's a freebie to demonstrate!
   };
-
 
   // Determine whether all of the elements match a truth test.
   _.every = function(collection, iterator) {
