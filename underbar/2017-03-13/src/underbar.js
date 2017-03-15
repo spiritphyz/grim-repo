@@ -186,6 +186,24 @@
     return accumulator;
   };
 
+  // es6 definition
+  _.reduce = (...args) => {
+    let skipRun = false;
+    let [collection, iterator, accumulator] = args;
+    if (args.length < 3) {
+      accumulator = collection[0];
+      skipRun = true;
+    }
+    _.each(collection, (val, idx) => {
+      if (skipRun) {
+        skipRun = false;
+      } else {
+        accumulator = iterator(accumulator, val);
+      }
+    });
+    return accumulator;
+  };
+
   // Determine if the array or object contains a given value (using `===`).
   _.contains = function(collection, target) {
     // TIP: Many iteration problems can be most easily expressed in
