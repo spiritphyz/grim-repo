@@ -201,6 +201,9 @@
     });
   };
 
+  _.pluck = (collection, key) =>
+    _.map(collection, obj => obj[key]);
+
   // Reduces an array or object to a single value by repetitively calling
   // iterator(accumulator, item) for each item. accumulator should be
   // the return value of the previous iterator call.
