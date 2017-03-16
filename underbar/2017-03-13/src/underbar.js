@@ -177,6 +177,12 @@
     }, []);
   };
 
+  _.map = (collection, iterator) =>
+    _.reduce(collection, (memo, item) => {
+      memo.push(iterator(item));
+      return memo;
+    }, []);
+
   /*
    * TIP: map is really handy when you want to transform an array of
    * values into a new array of values. _.pluck() is solved for you
