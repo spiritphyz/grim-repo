@@ -139,10 +139,19 @@
   };
 
   // es6 definition
-  _.reject = (collection, test) => _.filter(collection, val => !test(val)); 
+  _.reject = (collection, test) => 
+    _.filter(collection, val => !test(val)); 
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array) {
+    var uniques = _.reduce(array, function(memo, item) {
+      memo[item] = item;
+      return memo;
+    }, {});
+    return _.reduce(uniques, function(memo, item) {
+      memo.push(item);
+      return memo;
+    }, []);
   };
 
 
