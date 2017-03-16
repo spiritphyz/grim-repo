@@ -154,6 +154,17 @@
     }, []);
   };
 
+  _.uniq = array => {
+    let uniques = _.reduce(array, (memo, item) => {
+      memo[item] = item;
+      return memo;
+    }, {});
+    return _.reduce(uniques, (memo, item) => {
+      memo.push(item);
+      return memo;
+    }, []);
+  };
+
 
   // Return the results of applying an iterator to each element.
   _.map = function(collection, iterator) {
