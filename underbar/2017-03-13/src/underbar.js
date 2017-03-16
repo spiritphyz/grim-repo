@@ -196,6 +196,9 @@
     // TIP: map is really handy when you want to transform an array of
     // values into a new array of values. _.pluck() is solved for you
     // as an example of this.
+    return _.map(collection, function(obj) {
+      return obj[key];
+    });
   };
 
   // Reduces an array or object to a single value by repetitively calling
