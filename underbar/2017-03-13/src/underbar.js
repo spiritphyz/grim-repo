@@ -267,6 +267,10 @@
     }, false);
   };
 
+  // es6 definition
+  _.contains = (collection, target) => 
+    _.reduce(collection, (memo, item) => memo || target === item, false);
+
   // Determine whether all of the elements match a truth test.
   _.every = function(collection, iterator) {
     // TIP: Try re-using reduce() here.
