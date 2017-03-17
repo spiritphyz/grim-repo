@@ -262,6 +262,9 @@
   _.contains = function(collection, target) {
     // TIP: Many iteration problems can be most easily expressed in
     // terms of reduce(). Here's a freebie to demonstrate!
+    return _.reduce(collection, function(memo, item) {
+      return memo || target === item;
+    }, false);
   };
 
   // Determine whether all of the elements match a truth test.
