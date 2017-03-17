@@ -334,7 +334,9 @@
   // es6 definition
   _.extend = (target, ...objList) => {
     return _.reduce(objList, (memo, obj) => {
-      _.each(obj, (val, key) => memo[key] = val);
+      for (let key of Object.keys(obj)) {
+        memo[key] = obj[key];
+      }
       return memo;
     }, target);
   };
