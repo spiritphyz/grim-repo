@@ -355,6 +355,18 @@
     }, target);
   };
 
+  // es6 definition
+  _.defaults = (target, ...objList) => {
+    return _.reduce(objList, (memo, obj) => {
+      _.each(obj, (val, key) => {
+        if (!memo.hasOwnProperty(key)) {
+          memo[key] = val;
+        }
+      });
+      return memo;
+    }, target);
+  };
+
 
   /**
    * FUNCTIONS
