@@ -280,6 +280,10 @@
     }, true);
   };
 
+  // es6 definition
+  _.every = (collection, iterator = _.identity) =>
+    _.reduce(collection, (memo, item) => memo && Boolean(iterator(item)), true);
+
   // Determine whether any of the elements pass a truth test. If no iterator is
   // provided, provide a default one
   _.some = function(collection, iterator) {
