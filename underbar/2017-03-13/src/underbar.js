@@ -331,6 +331,14 @@
     }, obj);
   };
 
+  // es6 definition
+  _.extend = (target, ...objList) => {
+    return _.reduce(objList, (memo, obj) => {
+      _.each(obj, (val, key) => memo[key] = val);
+      return memo;
+    }, target);
+  };
+
   // Like extend, but doesn't ever overwrite a key that already
   // exists in obj
   _.defaults = function(obj) {
