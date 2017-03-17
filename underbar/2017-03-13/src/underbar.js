@@ -288,6 +288,10 @@
   // provided, provide a default one
   _.some = function(collection, iterator) {
     // TIP: There's a very clever way to re-use every() here.
+    iterator = iterator || _.identity;
+    return _.reduce(collection, function(memo, item) {
+      return memo || Boolean(iterator(item));
+    }, false);
   };
 
 
