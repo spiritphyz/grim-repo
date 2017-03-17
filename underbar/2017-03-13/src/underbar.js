@@ -294,6 +294,14 @@
     }, false);
   };
 
+  // es6 definition
+  // either every item is false or some are true
+  _.some = (collection, iterator = _.identity) => {
+    const allFalse = _.every(collection, item => 
+      Boolean(iterator(item)) === false);
+    return allFalse === true ? false : true;
+  };
+
 
   /**
    * OBJECTS
