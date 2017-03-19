@@ -385,6 +385,15 @@
 
     // TIP: We'll return a new function that delegates to the old one, but only
     // if it hasn't been called before.
+    var hasRun = false;
+    var result;
+    return function() {
+      if (!hasRun) {
+        result = func.apply(this, arguments);
+        hasRun = true;
+      }
+      return result;
+    };
   };
 
   // Memorize an expensive function's results by storing them. You may assume
