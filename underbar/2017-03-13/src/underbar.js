@@ -396,6 +396,18 @@
     };
   };
 
+  _.once = function(func) {
+    let hasRun = false;
+    let result;
+    return (...args) => {
+      if (!hasRun) {
+        result = func.apply(this, args);
+        hasRun = true;
+      }
+      return result;
+    };
+  };
+
   // Memorize an expensive function's results by storing them. You may assume
   // that the function only takes primitives as arguments.
   // memoize could be renamed to oncePerUniqueArgumentList; memoize does the
