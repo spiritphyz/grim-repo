@@ -427,6 +427,17 @@
     };
   };
 
+  _.memoize = func => {
+    const cache = {};
+    return (...args) => {
+      let argList = JSON.stringify(args);
+      if (!(argList in cache)) {
+        cache[argList] = func.apply(this, args);
+      }
+      return cache[argList];
+    };
+  };
+
   // Delays a function for the given number of milliseconds, and then calls
   // it with the arguments supplied.
   //
