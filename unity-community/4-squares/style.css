@@ -1,0 +1,12 @@
+.square {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  display: inline-block;
+  border-radius: 10%;
+  border: 5px solid rgba(255,0,0,.3);
+}
+body {
+  margin: 0;
+  padding: 0;
+}
