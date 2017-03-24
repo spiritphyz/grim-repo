@@ -396,6 +396,7 @@
     };
   };
 
+  // es6 definition
   _.once = function(func) {
     let hasRun = false;
     let result;
@@ -427,6 +428,7 @@
     };
   };
 
+  // es6 definition
   _.memoize = func => {
     const cache = {};
     return (...args) => {
@@ -451,6 +453,9 @@
     }, wait);
   };
 
+  // es6 definition
+  _.delay = (func, wait, ...args) => 
+    setTimeout(() => func.apply(null, args), wait);
 
   /**
    * ADVANCED COLLECTION OPERATIONS
