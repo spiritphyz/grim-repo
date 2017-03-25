@@ -480,6 +480,17 @@
     return copy;
   };
 
+  // es6 definition
+  _.shuffle = array => {
+    let copy = Array.from(array);
+    const compareFunc = () => Math.floor(Math.random() * 3 - 1);
+    do {
+      copy.sort(compareFunc);
+    } while (
+      JSON.stringify(array) === JSON.stringify(copy)
+    );
+    return copy;
+  };
 
   /**
    * ADVANCED
