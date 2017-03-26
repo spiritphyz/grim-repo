@@ -543,6 +543,8 @@
     return result;
   };
 
+  // TODO: write _.zip() using _.pluck()
+
   // Takes a multidimensional array and converts it to a one-dimensional array.
   // The new array should contain all elements of the multidimensional array.
   //
