@@ -527,13 +527,20 @@
   // Example:
   // _.zip(['a','b','c','d'], [1,2,3]) returns [['a',1], ['b',2], ['c',3], ['d',undefined]]
   _.zip = function() {
-    // input: two or more arrays
-    // output: an array of arrays (elements of same index going together)
-    // step by step plan:
-    // make a list of input arrays
-    // find maxIndex
-    // iterate from 0 to maxIndex
-      // for each index, run pluck on every array at the index (which is the key obj)
+    var arrays = [].slice.call(arguments);
+    var max = _.reduce(arrays, function(memo, array) {
+      return Math.max(memo, array.length);
+    }, 0);
+    var result = [];
+    var innerArray = [];
+    for (var i = 0; i < max; i += 1) {
+      innerArray = _.reduce(arrays, function(memo, array) {
+        memo.push(array[i]);
+        return memo;
+      }, []);
+      result.push(innerArray);
+    }
+    return result;
   };
 
   // Takes a multidimensional array and converts it to a one-dimensional array.
