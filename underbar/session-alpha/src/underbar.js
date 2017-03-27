@@ -538,6 +538,17 @@
     return result;
   };
 
+  // es6 definition
+  _.zip = (...arrays) => {
+    const max = _.reduce(arrays, (memo, array) => 
+      Math.max(memo, array.length), 0);
+    let result = [];
+    for (let i = 0; i < max; i += 1) {
+      result.push(_.pluck(arrays, i));
+    }
+    return result;
+  };
+
   // Takes a multidimensional array and converts it to a one-dimensional array.
   // The new array should contain all elements of the multidimensional array.
   //
