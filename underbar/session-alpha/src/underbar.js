@@ -532,18 +532,11 @@
       return Math.max(memo, array.length);
     }, 0);
     var result = [];
-    var innerArray = [];
     for (var i = 0; i < max; i += 1) {
-      innerArray = _.reduce(arrays, function(memo, array) {
-        memo.push(array[i]);
-        return memo;
-      }, []);
-      result.push(innerArray);
+      result.push(_.pluck(arrays, i));
     }
     return result;
   };
-
-  // TODO: write _.zip() using _.pluck()
 
   // Takes a multidimensional array and converts it to a one-dimensional array.
   // The new array should contain all elements of the multidimensional array.
