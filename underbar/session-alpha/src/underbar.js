@@ -568,11 +568,7 @@
   // es6 definition
   _.flatten = (nestedArray, result = []) => {
     for (let item of nestedArray) {
-      if (Array.isArray(item)) {
-        _.flatten(item, result);
-      } else {
-        result.push(item);
-      }
+      Array.isArray(item) ? _.flatten(item, result) : result.push(item);
     }
     return result;
   };
