@@ -565,6 +565,18 @@
     return result;
   };
 
+  // es6 definition
+  _.flatten = (nestedArray, result = []) => {
+    for (let item of nestedArray) {
+      if (Array.isArray(item)) {
+        _.flatten(item, result);
+      } else {
+        result.push(item);
+      }
+    }
+    return result;
+  };
+
   // Takes an arbitrary number of arrays and produces an array that contains
   // every item shared between all the passed-in arrays.
   _.intersection = function() {
