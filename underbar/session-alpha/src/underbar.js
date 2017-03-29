@@ -573,6 +573,15 @@
     return result;
   };
 
+  // Using Array.concat()
+  _.flatten = function(nestedArray) {
+    return _.reduce(nestedArray, function(memo, item) {
+      return memo.concat(
+        Array.isArray(item) ? _.flatten(item) : item
+      );
+    }, []);
+  };
+
   // Takes an arbitrary number of arrays and produces an array that contains
   // every item shared between all the passed-in arrays.
   _.intersection = function() {
