@@ -582,6 +582,11 @@
     }, []);
   };
 
+  // Using Array.concat() and es6
+  _.flatten = nestedArray => 
+    _.reduce(nestedArray, (memo, item) => 
+      memo.concat(Array.isArray(item) ? _.flatten(item) : item), []);
+
   // Takes an arbitrary number of arrays and produces an array that contains
   // every item shared between all the passed-in arrays.
   _.intersection = function() {
