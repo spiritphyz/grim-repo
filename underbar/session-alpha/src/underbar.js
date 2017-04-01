@@ -594,12 +594,23 @@
     var firstArr = arrays.splice(0, 1)[0];
     var isShared;
 
-    // the first array mush contain shared items
+    // the first array must contain shared items
     return _.reduce(firstArr, function(memo, item) {
       isShared = _.every(arrays, function(array) {
         return _.contains(array, item);
       });
       return isShared ? (memo.push(item), memo) : memo; 
+    }, []);
+  };
+
+  // es6 definition
+  _.intersection = (...arrays) => {
+    const firstArr = Array.from(arrays[0]);
+    let isShared;
+    // the first array must contain shared items
+    return _.reduce(firstArr, (memo, item) => {
+      isShared = _.every(arrays, array => _.contains(array, item));
+      return isShared ? (memo.push(item), memo) : memo;
     }, []);
   };
 
