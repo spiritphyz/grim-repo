@@ -617,6 +617,11 @@
   // Take the difference between one array and a number of other arrays.
   // Only the elements present in just the first array will remain.
   _.difference = function(array) {
+    var flat = _.flatten([].slice.call(arguments, 1));
+    var uniq = _.uniq(flat);
+    return _.reduce(array, function(memo, item) {
+      return _.contains(uniq, item) ? memo : (memo.push(item), memo);
+    }, []);
   };
 
   // Returns a function, that, when invoked, will only be triggered at most once
