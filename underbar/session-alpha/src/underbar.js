@@ -624,6 +624,12 @@
     }, []);
   };
 
+  _.difference = (array, ...arrays) => {
+    const uniq = _.uniq(_.flatten(arrays));
+    return _.reduce(array, (memo, item) => 
+      _.contains(uniq, item) ? memo : (memo.push(item), memo), []);
+  };
+
   // Returns a function, that, when invoked, will only be triggered at most once
   // during a given window of time.  See the Underbar readme for extra details
   // on this function.
